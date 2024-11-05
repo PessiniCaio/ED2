@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 // Função para calcular o prefixo do KMP
 void calcula_prefixo_kmp(const char padrao[], int m, int prefixo[]) {
     int comprimento = 0;
@@ -43,7 +47,7 @@ int busca_kmp(const char texto[], const char padrao[]) {
 }
 
 int main() {
-    char texto[TAMANHO_MAX_TEXTO] = "Seu texto estático do CSV aqui";  // Popule com o conteúdo do CSV
+    char texto[TAMANHO_MAX_TEXTO] = "Seu texto estático do CSV aqui";
     char padrao[TAMANHO_MAX_PADRAO] = "padrao_para_buscar";
 
     int comparacoes = busca_kmp(texto, padrao);

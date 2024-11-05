@@ -28,7 +28,7 @@ int busca_forca_bruta(const char texto[], const char padrao[]) {
 }
 
 int main() {
-    char texto[TAMANHO_MAX_TEXTO] = "Seu texto estático do CSV aqui";  // Popule com o conteúdo do CSV
+    char texto[TAMANHO_MAX_TEXTO] = "Seu texto estático do CSV aqui"; 
     char padrao[TAMANHO_MAX_PADRAO] = "padrao_para_buscar";
 
     int comparacoes = busca_forca_bruta(texto, padrao);

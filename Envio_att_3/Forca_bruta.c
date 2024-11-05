@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-#define TAMANHO_MAX_TEXTO 1000  // Defina o tamanho máximo do texto baseado no arquivo CSV
-#define TAMANHO_MAX_PADRAO 100  // Ajuste se necessário
+#define TAMANHO_MAX_TEXTO 1000
+#define TAMANHO_MAX_PADRAO 100
 
 // Função de busca por força bruta
 int busca_forca_bruta(const char texto[], const char padrao[]) {

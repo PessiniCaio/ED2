@@ -40,12 +40,12 @@ int busca_kmp(const char texto[], const char padrao[]) {
             j++;
         }
         if (j == m) {
-            printf("Padrão encontrado no índice %d\n", i - m + 1);
+            printf("Padrao encontrado no indice %d\n", i - m + 1);
             return comparacoes;
         }
     }
 
-    printf("Padrão não encontrado.\n");
+    printf("Padrao nao encontrado.\n");
     return comparacoes;
 }
 
@@ -62,7 +62,7 @@ int main() {
 
     // Lendo o conteúdo do arquivo CSV
     if (fgets(texto, TAMANHO_MAX_TEXTO, arquivo) == NULL) {
-        printf("Erro ao ler o conteúdo do arquivo.\n");
+        printf("Erro ao ler o conteudo do arquivo.\n");
         fclose(arquivo);
         return 1;
     }
@@ -70,7 +70,7 @@ int main() {
     fclose(arquivo);
 
     int comparacoes = busca_kmp(texto, padrao);
-    printf("Total de comparações: %d\n", comparacoes);
+    printf("Total de comparacoes: %d\n", comparacoes);
 
     return 0;
 }

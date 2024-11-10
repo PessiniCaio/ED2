@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define TAMANHO_MAX_TEXTO 1000
+#define TAMANHO_MAX_PADRAO 100
+
 // Função para calcular o prefixo do KMP
 void calcula_prefixo_kmp(const char padrao[], int m, int prefixo[]) {
     int comprimento = 0;
@@ -47,10 +50,27 @@ int busca_kmp(const char texto[], const char padrao[]) {
 }
 
 int main() {
-    char texto[TAMANHO_MAX_TEXTO] = "Seu texto estático do CSV aqui";
+    char texto[TAMANHO_MAX_TEXTO];
     char padrao[TAMANHO_MAX_PADRAO] = "padrao_para_buscar";
+    
+    // Abrindo o arquivo CSV
+    FILE *arquivo = fopen("texto_carac_1000.csv", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+
+    // Lendo o conteúdo do arquivo CSV
+    if (fgets(texto, TAMANHO_MAX_TEXTO, arquivo) == NULL) {
+        printf("Erro ao ler o conteúdo do arquivo.\n");
+        fclose(arquivo);
+        return 1;
+    }
+
+    fclose(arquivo);
 
     int comparacoes = busca_kmp(texto, padrao);
     printf("Total de comparações: %d\n", comparacoes);
+
     return 0;
 }

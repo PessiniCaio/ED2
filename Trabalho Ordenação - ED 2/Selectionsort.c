@@ -2,10 +2,12 @@
 #include <time.h>
 #include "Selectionsort.h"
 
+// Variáveis globais para rastrear comparações, trocas e tempo
 double sSTE;
 int sSCompE;
 int sSSwapsE;
 
+// Função para realizar a troca entre dois elementos no vetor
 void swapSelection(int *a, int *b, int *sSSwaps) {
     int temp = *a;
     *a = *b;
@@ -13,6 +15,7 @@ void swapSelection(int *a, int *b, int *sSSwaps) {
     (*sSSwaps)++;
 }
 
+// Função principal para realizar a ordenação por seleção 
 void selectionSort(int *array, int tamanho) {
 
     sSCompE = 0;

@@ -1,7 +1,6 @@
 #ifndef MERGESORT_H
 #define MERGESORT_H
 
-
 extern double mST;
 extern int mSComp;
 extern int mSSwaps;

@@ -2,10 +2,12 @@
 #include <time.h>
 #include "Radixsort.h"
 
+// Variáveis globais para rastrear comparações, trocas e tempo
 double rST;
 int rSComp;
 int rSSwaps;
 
+// Função para encontrar o maior elemento no vetor
 int getMax(int *array, int tamanho) {
     int max = array[0];
     for (int i = 1; i < tamanho; i++) {
@@ -16,19 +18,23 @@ int getMax(int *array, int tamanho) {
     return max;
 }
 
+// Função Counting Sort para um dígito específico
 void countingSort(int *array, int tamanho, int place, int *rSComp, int *rSSwaps) {
-    int output[tamanho];
-    int count[10] = {0};
+    int output[tamanho];    // Vetor para armazenar os resultados ordenados
+    int count[10] = {0};    // Contador para armazenar a frequência dos dígitos
 
+    // Conta a ocorrência de cada dígito no lugar atual (unidade, dezena, etc.)
     for (int i = 0; i < tamanho; i++) {
-        int index = (array[i] / place) % 10;
+        int index = (array[i] / place) % 10;    // Obtém o dígito no lugar atual
         count[index]++;
     }
 
+    // Calcula os índices acumulados para os dígitos
     for (int i = 1; i < 10; i++) {
         count[i] += count[i - 1];
     }
 
+    // Constrói o vetor de saída
     for (int i = tamanho - 1; i >= 0; i--) {
         int index = (array[i] / place) % 10;
         output[count[index] - 1] = array[i];
@@ -36,12 +42,14 @@ void countingSort(int *array, int tamanho, int place, int *rSComp, int *rSSwaps)
         (*rSSwaps)++;
     }
 
+    // Copia os elementos do vetor de saída de volta para o array original
     for (int i = 0; i < tamanho; i++) {
         array[i] = output[i];
         (*rSComp)++;
     }
 }
 
+// Função principal para realizar a ordenação por radix 
 void radixSort(int *array, int tamanho) {
 
     rSComp = 0;
@@ -52,6 +60,7 @@ void radixSort(int *array, int tamanho) {
 
     int maxElement = getMax(array, tamanho);
 
+    // Aplica Counting Sort para cada dígito (unidade, dezena, centena, etc.)
     for (int place = 1; maxElement / place > 0; place *= 10) {
         countingSort(array, tamanho, place, &rSComp, &rSSwaps);
     }

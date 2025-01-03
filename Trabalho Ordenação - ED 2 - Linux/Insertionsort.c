@@ -2,10 +2,12 @@
 #include <time.h>
 #include "Insertionsort.h"
 
+// Variáveis globais para rastrear comparações, trocas e tempo
 double iST;
 int iSComp;
 int iSSwaps;
 
+// Função para realizar a ordenação por inserção direta
 void insertionSort(int *array, int tamanho) {
 
     iSComp = 0;
@@ -15,10 +17,12 @@ void insertionSort(int *array, int tamanho) {
     start = clock();
 
 
+    // Percorre o vetor a partir do segundo elemento
     for (int i = 1; i < tamanho; ++i) {
         int key = array[i];
         int j = i - 1;
 
+        // Move os elementos maiores que a chave uma posição para a direita
         while (j >= 0 && array[j] > key) {
             iSComp++;
             array[j + 1] = array[j];

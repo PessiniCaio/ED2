@@ -2,10 +2,12 @@
 #include <stdio.h>
 #include <time.h>
 
+// Variáveis globais para rastrear comparações, trocas e tempo
 double bCPT;
 int bCPComp;
 int bCPSwaps;
 
+// Função para realizar a ordenação por bolha com parada
 void ordenaBolhaComParada(int *dados, int tamanho) {
     int mudou = 1;
     int n = tamanho - 1;

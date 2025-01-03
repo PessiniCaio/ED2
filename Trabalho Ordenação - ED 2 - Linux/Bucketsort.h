@@ -4,6 +4,7 @@
 extern double bSTE;
 extern int bSComp;
 extern int bSSwaps;
+
 void bucketSort(int *array, int tamanho);
 
 #endif

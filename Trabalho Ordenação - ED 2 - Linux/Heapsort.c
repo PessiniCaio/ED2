@@ -2,14 +2,16 @@
 #include <time.h>
 #include "Heapsort.h"
 
+// Variáveis globais para rastrear comparações, trocas e tempo
 double hST;
 int hSComp;
 int hSSwaps;
 
+// Função para ajustar o heap para manter a propriedade de heap
 void heapify(int *array, int tamanho, int i, int *hSComp, int *hSSwaps) {
     int largest = i;
-    int l = 2 * i + 1;
-    int r = 2 * i + 2;
+    int l = 2 * i + 1;          // Índice do filho à esquerda
+    int r = 2 * i + 2;          // Índice do filho à direita
 
     if (l < tamanho) {
         (*hSComp)++;
@@ -18,6 +20,7 @@ void heapify(int *array, int tamanho, int i, int *hSComp, int *hSSwaps) {
         }
     }
 
+
     if (r < tamanho) {
         (*hSComp)++;
         if (array[r] > array[largest]) {
@@ -25,6 +28,7 @@ void heapify(int *array, int tamanho, int i, int *hSComp, int *hSSwaps) {
         }
     }
 
+    // Se o maior não for o nó atual, troca os elementos e continua a ajustar
     if (largest != i) {
         int temp = array[i];
         array[i] = array[largest];
@@ -32,10 +36,12 @@ void heapify(int *array, int tamanho, int i, int *hSComp, int *hSSwaps) {
 
         (*hSSwaps)++;
 
+        // Recursivamente ajusta a subárvore afetada
         heapify(array, tamanho, largest, hSComp, hSSwaps);
     }
 }
 
+// Função principal para realizar a ordenação por heap 
 void heapSort(int *array, int tamanho) {
 
     hSComp = 0;
@@ -45,10 +51,12 @@ void heapSort(int *array, int tamanho) {
     start = clock();
 
 
+    // Constrói o heap maximizador (heapify em todos os nós não-folha)
     for (int i = tamanho / 2 - 1; i >= 0; i--) {
         heapify(array, tamanho, i, &hSComp, &hSSwaps);
     }
 
+    // Extrai elementos do heap um por um
     for (int i = tamanho - 1; i > 0; i--) {
         int temp = array[0];
         array[0] = array[i];

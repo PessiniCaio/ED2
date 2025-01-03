@@ -3,10 +3,12 @@
 #include <time.h>
 #include <stdlib.h>
 
+// Variáveis globais para rastrear comparações, trocas e tempo
 int bIComp;
 int bISwaps;
 double bIST;
 
+// Função para realizar busca binária
 int binarySearch(int a[], int item, 
 				int low, int high)
 {
@@ -26,6 +28,7 @@ int binarySearch(int a[], int item,
 						mid - 1);
 }
 
+// Função para realizar ordenação por inserção binária
 void binaryInsertionSort(int *array, int tamanho)
 {
     int i, loc, j, selected;

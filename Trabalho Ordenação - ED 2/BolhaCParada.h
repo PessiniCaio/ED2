@@ -2,8 +2,8 @@
 #define BOLHACPARADA_H
 
 extern double bCPT;
-extern int bCPComp;
-extern int bCPSwaps;
+extern long long int bCPComp;
+extern long long int bCPSwaps;
 void ordenaBolhaComParada(int *dados, int tamanho);
 
 #endif

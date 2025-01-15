@@ -2,8 +2,8 @@
 #define INSERTIONSORT_H
 
 extern double iST;
-extern int iSComp;
-extern int iSSwaps;
+extern long long int iSComp;
+extern long long int iSSwaps;
 void insertionSort(int *array, int tamanho);
 
 #endif

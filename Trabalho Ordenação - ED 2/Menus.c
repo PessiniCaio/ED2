@@ -81,6 +81,14 @@ void menu_ordem(int base_opcao)
         return;
     }
 
+    FILE *file = fopen(caminho, "r");
+    if (!file)
+    {
+        printf("Erro: Arquivo %s nao encontrado. Certifique-se de que ele existe.\n", caminho);
+        return;
+    }
+    fclose(file);
+
     menu_ordenacao(caminho);
 }
 
@@ -124,8 +132,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Bolha Sem Criterio de Parada...\n");
 
             extern double bSPT;
-            extern int bSPComp;
-            extern int bSPSwaps;
+            extern long long int bSPComp;
+            extern long long int bSPSwaps;
+
+            bSPComp = 0;
+            bSPSwaps = 0;
+            bSPT = 0.0;
 
             ordenaBolhaSemParada(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Bolha sem parada", bSPComp, bSPSwaps, bSPT);
@@ -136,8 +148,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Bolha Com Criterio de Parada...\n");
 
             extern double bCPT;
-            extern int bCPComp;
-            extern int bCPSwaps;
+            extern long long int bCPComp;
+            extern long long int bCPSwaps;
+
+            bCPComp = 0;
+            bCPSwaps = 0;
+            bCPT = 0.0;
 
             ordenaBolhaComParada(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Bolha com parada", bCPComp, bCPSwaps, bCPT);
@@ -148,8 +164,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Insercao direta...\n");
 
             extern double iST;
-            extern int iSComp;
-            extern int iSSwaps;
+            extern long long int iSComp;
+            extern long long int iSSwaps;
+
+            iSComp = 0;
+            iSSwaps = 0;
+            iST = 0.0;
 
             insertionSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Insercao direta", iSComp, bCPSwaps, bCPT);
@@ -159,9 +179,13 @@ void menu_ordenacao(const char *caminho)
         case 4:
             printf("Usando Insercao binaria...\n");
 
-            extern int bIComp;
-            extern int bISwaps;
+            extern long long int bIComp;
+            extern long long int bISwaps;
             extern double bIST;
+
+            bIComp = 0;
+            bISwaps = 0;
+            bIST = 0.0;
 
             binaryInsertionSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Insercao binaria", bIComp, bISwaps, bIST);
@@ -172,8 +196,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Shellsort...\n");
 
             extern double sST;
-            extern int sSComp;
-            extern int sSSwaps;
+            extern long long int sSComp;
+            extern long long int sSSwaps;
+
+            sSComp = 0;
+            sSSwaps = 0;
+            sST = 0.0;
 
             shellSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Shell sort", sSComp, sSSwaps, sST);
@@ -184,8 +212,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Selecao direta...\n");
 
             extern double sSTE;
-            extern int sSCompE;
-            extern int sSSwapsE;
+            extern long long int sSCompE;
+            extern long long int sSSwapsE;
+
+            sSCompE = 0;
+            sSSwapsE = 0;
+            sSTE = 0.0;
 
             selectionSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Selecao direta", sSCompE, sSSwapsE, sSTE);
@@ -196,8 +228,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Heapsort...\n");
 
             extern double hST;
-            extern int hSComp;
-            extern int hSSwaps;
+            extern long long int hSComp;
+            extern long long int hSSwaps;
+
+            hSComp = 0;
+            hSSwaps = 0;
+            hST = 0.0;
 
             heapSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Heap sort", hSComp, hSSwaps, hST);
@@ -208,8 +244,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Quicksort...\n");
 
             extern double qST;
-            extern int qSComp;
-            extern int qSSwaps;
+            extern long long int qSComp;
+            extern long long int qSSwaps;
+
+            qSComp = 0;
+            qSSwaps = 0;
+            qST = 0.0;
 
             quickSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Quick sort", qSComp, qSSwaps, qST);
@@ -220,8 +260,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Mergesort...\n");
 
             extern double mST;
-            extern int mSComp;
-            extern int mSSwaps;
+            extern long long int mSComp;
+            extern long long int mSSwaps;
+
+            mSComp = 0;
+            mSSwaps = 0;
+            mST = 0.0;
 
             mergeSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Merge sort", mSComp, mSSwaps, mST);
@@ -232,8 +276,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Radixsort...\n");
 
             extern double rST;
-            extern int rSComp;
-            extern int rSSwaps;
+            extern long long int rSComp;
+            extern long long int rSSwaps;
+
+            rSComp = 0;
+            rSSwaps = 0;
+            rST = 0.0;
 
             radixSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Radix sort", rSComp, rSSwaps, rST);
@@ -244,8 +292,12 @@ void menu_ordenacao(const char *caminho)
             printf("Usando Bucketsort...\n");
 
             extern double bSTE;
-            extern int bSComp;
-            extern int bSSwaps;
+            extern long long int bSComp;
+            extern long long int bSSwaps;
+
+            bSComp = 0;
+            bSSwaps = 0;
+            bSTE = 0.0;
 
             bucketSort(dados, tamanho);
             salvar_saida("saida.txt", dados, tamanho, "Bucket sort", bSComp, bSSwaps, bSTE);
@@ -259,8 +311,8 @@ void menu_ordenacao(const char *caminho)
                 "Bolha sem parada", "Bolha com parada", "Insercao direta", "Insercao binaria",
                 "Shell sort", "Selecao direta", "Heap sort", "Quick sort", "Merge sort",
                 "Radix sort", "Bucket sort"};
-            int comparacoes[11] = {0};
-            int trocas[11] = {0};
+            long long int comparacoes[11] = {0};
+            long long int trocas[11] = {0};
             double tempos[11] = {0};
 
             // Cria uma cópia dos dados para cada algoritmo

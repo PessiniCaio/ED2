@@ -4,8 +4,8 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double bCPT;
-int bCPComp;
-int bCPSwaps;
+long long int bCPComp;
+long long int bCPSwaps;
 
 // Função para realizar a ordenação por bolha com parada
 void ordenaBolhaComParada(int *dados, int tamanho) {

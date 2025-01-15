@@ -4,8 +4,8 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double bSPT;
-int bSPComp;
-int bSPSwaps;
+long long int bSPComp;
+long long int bSPSwaps;
 
 // Função para realizar a ordenação por bolha sem parada
 void ordenaBolhaSemParada(int *dados, int tamanho) {
@@ -30,6 +30,5 @@ void ordenaBolhaSemParada(int *dados, int tamanho) {
 
     end = clock();
     bSPT = ((double)(end - start)) / CLOCKS_PER_SEC;
-
 
 }

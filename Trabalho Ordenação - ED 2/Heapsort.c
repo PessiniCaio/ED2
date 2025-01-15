@@ -4,11 +4,11 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double hST;
-int hSComp;
-int hSSwaps;
+long long int hSComp;
+long long int hSSwaps;
 
 // Função para ajustar o heap para manter a propriedade de heap
-void heapify(int *array, int tamanho, int i, int *hSComp, int *hSSwaps) {
+void heapify(int *array, int tamanho, int i, long long int *hSComp, long long int *hSSwaps) {
     int largest = i;
     int l = 2 * i + 1;          // Índice do filho à esquerda
     int r = 2 * i + 2;          // Índice do filho à direita

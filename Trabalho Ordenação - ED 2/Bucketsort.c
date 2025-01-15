@@ -5,8 +5,8 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double bSTE;
-int bSComp;
-int bSSwaps;
+long long int bSComp;
+long long int bSSwaps;
 
 // Estrutura de um nó usado para listas encadeadas nos buckets
 struct Node {
@@ -15,7 +15,7 @@ struct Node {
 };
 
 // Protótipos das funções auxiliares
-struct Node *InsertionSort(struct Node *list, int *bSComp, int *bSSwaps);
+struct Node *InsertionSort(struct Node *list, long long int *bSComp, long long int *bSSwaps);
 int getBucketIndex(int value, int interval);
 
 // Função principal para realizar a ordenação por bucket 
@@ -69,7 +69,7 @@ void bucketSort(int *array, int tamanho) {
 }
 
 // Função para ordenar uma lista encadeada usando ordenação por inserção direta (Insertion Sort)
-struct Node *InsertionSort(struct Node *list, int *bSComp, int *bSSwaps) {
+struct Node *InsertionSort(struct Node *list, long long int *bSComp, long long int *bSSwaps) {
     if (!list || !list->next) return list;
 
     struct Node *sorted = NULL;

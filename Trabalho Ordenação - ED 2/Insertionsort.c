@@ -4,8 +4,8 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double iST;
-int iSComp;
-int iSSwaps;
+long long int iSComp;
+long long int iSSwaps;
 
 // Função para realizar a ordenação por inserção direta
 void insertionSort(int *array, int tamanho) {

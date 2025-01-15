@@ -4,8 +4,8 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double rST;
-int rSComp;
-int rSSwaps;
+long long int rSComp;
+long long int rSSwaps;
 
 // Função para encontrar o maior elemento no vetor
 int getMax(int *array, int tamanho) {
@@ -19,7 +19,7 @@ int getMax(int *array, int tamanho) {
 }
 
 // Função Counting Sort para um dígito específico
-void countingSort(int *array, int tamanho, int place, int *rSComp, int *rSSwaps) {
+void countingSort(int *array, int tamanho, int place, long long int *rSComp, long long int *rSSwaps) {
     int output[tamanho];    // Vetor para armazenar os resultados ordenados
     int count[10] = {0};    // Contador para armazenar a frequência dos dígitos
 

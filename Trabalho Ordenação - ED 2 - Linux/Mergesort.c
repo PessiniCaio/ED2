@@ -4,11 +4,11 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double mST;
-int mSComp;
-int mSSwaps;
+long long int mSComp;
+long long int mSSwaps;
 
 // Função para mesclar (merge) duas sublistas ordenadas
-void merge(int *array, int left, int mid, int right, int *mSComp, int *mSSwaps) {
+void merge(int *array, int left, int mid, int right, long long int *mSComp, long long int *mSSwaps) {
     int i, j, k;
     int n1 = mid - left + 1;    // Tamanho da sublista esquerda
     int n2 = right - mid;       // Tamanho da sublista direita
@@ -58,7 +58,7 @@ void merge(int *array, int left, int mid, int right, int *mSComp, int *mSSwaps) 
 }
 
 // Função recursiva para dividir o vetor e realizar a mescla das listas
-void mergeSortHelper(int *array, int left, int right, int *mSComp, int *mSSwaps) {
+void mergeSortHelper(int *array, int left, int right, long long int *mSComp, long long int *mSSwaps) {
     if (left < right) {
         int mid = left + (right - left) / 2;
 

@@ -4,11 +4,11 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double qST;
-int qSComp;
-int qSSwaps;
+long long int qSComp;
+long long int qSSwaps;
 
 // Função para realizar a troca entre dois elementos no vetor
-void swapQuick(int *a, int *b, int *qSSwaps) {
+void swapQuick(int *a, int *b, long long int *qSSwaps) {
     int t = *a;
     *a = *b;
     *b = t;
@@ -16,7 +16,7 @@ void swapQuick(int *a, int *b, int *qSSwaps) {
 }
 
 // Função para particionar o vetor em torno de um pivô
-int partition(int *array, int low, int high, int *qSComp, int *qSSwaps) {
+int partition(int *array, int low, int high, long long int *qSComp, long long int *qSSwaps) {
     int pivot = array[high];    // Escolhe o último elemento como pivô
     int i = (low - 1);          // Índice do menor elemento
 
@@ -34,7 +34,7 @@ int partition(int *array, int low, int high, int *qSComp, int *qSSwaps) {
 }
 
 // Função auxiliar recursiva para dividir e conquistar
-void quickSortHelper(int *array, int low, int high, int *qSComp, int *qSSwaps) {
+void quickSortHelper(int *array, int low, int high, long long int *qSComp, long long int *qSSwaps) {
     if (low < high) {
         // Particiona o array e obtém o índice do pivô
         int pi = partition(array, low, high, qSComp, qSSwaps);

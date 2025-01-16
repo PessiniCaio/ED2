@@ -4,8 +4,8 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double sST;
-int sSComp;
-int sSSwaps;
+long long int sSComp;
+long long int sSSwaps;
 
 // Função para realizar a ordenação por shell
 void shellSort(int *dados, int tamanho) {

@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 // Variáveis globais para rastrear comparações, trocas e tempo
-int bIComp;
-int bISwaps;
+long long int bIComp;
+long long int bISwaps;
 double bIST;
 
 // Função para realizar busca binária

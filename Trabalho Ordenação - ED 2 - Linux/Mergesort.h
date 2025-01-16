@@ -2,11 +2,11 @@
 #define MERGESORT_H
 
 extern double mST;
-extern int mSComp;
-extern int mSSwaps;
+extern long long int mSComp;
+extern long long int mSSwaps;
 
-void merge(int *array, int left, int mid, int right, int *mSComp, int *mSSwaps);
-void mergeSortHelper(int *array, int left, int right, int *mSComp, int *mSSwaps);
+void merge(int *array, int left, int mid, int right, long long int *mSComp, long long int *mSSwaps);
+void mergeSortHelper(int *array, int left, int right, long long int *mSComp, long long int *mSSwaps);
 void mergeSort(int *array, int tamanho);
 
 #endif

@@ -2,8 +2,8 @@
 #define SHELLSORT_H
 
 extern double sST;
-extern int sSComp;
-extern int sSSwaps;
+extern long long int sSComp;
+extern long long int sSSwaps;
 
 void shellSort(int *dados, int tamanho);
 

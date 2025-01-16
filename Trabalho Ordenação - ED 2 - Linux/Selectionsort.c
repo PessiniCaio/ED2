@@ -4,11 +4,11 @@
 
 // Variáveis globais para rastrear comparações, trocas e tempo
 double sSTE;
-int sSCompE;
-int sSSwapsE;
+long long int sSCompE;
+long long int sSSwapsE;
 
 // Função para realizar a troca entre dois elementos no vetor
-void swapSelection(int *a, int *b, int *sSSwaps) {
+void swapSelection(int *a, int *b, long long int *sSSwaps) {
     int temp = *a;
     *a = *b;
     *b = temp;

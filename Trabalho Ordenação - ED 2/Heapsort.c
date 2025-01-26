@@ -44,6 +44,8 @@ void heapify(int *array, int tamanho, int i, long long int *hSComp, long long in
 // Função principal para realizar a ordenação por heap 
 void heapSort(int *array, int tamanho) {
 
+    printf("Executando heapsort\n");
+
     hSComp = 0;
     hSSwaps = 0;
 

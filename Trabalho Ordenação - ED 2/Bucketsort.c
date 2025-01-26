@@ -20,6 +20,7 @@ int getBucketIndex(int value, int interval);
 
 // Função principal para realizar a ordenação por bucket 
 void bucketSort(int *array, int tamanho) {
+    printf("Executando bucket sort\n");
     if (tamanho <= 0) return;
 
     int i, j;

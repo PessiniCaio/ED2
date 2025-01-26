@@ -10,6 +10,8 @@ long long int sSSwaps;
 // Função para realizar a ordenação por shell
 void shellSort(int *dados, int tamanho) {
 
+    printf("Executando shellsort\n");
+
     sSComp = 0;
     sSSwaps = 0;
 

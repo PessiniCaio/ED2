@@ -7,7 +7,9 @@
 #include "Heapsort.h"
 #include "Insertionsort.h"
 #include "Mergesort.h"
-#include "Quicksort.h"
+#include "QuickSortIni.h"
+#include "QuickSortCentro.h"
+#include "QuickSortMediana.h"
 #include "Radixsort.h"
 #include "Selectionsort.h"
 #include "Shellsort.h"
@@ -117,12 +119,14 @@ void menu_ordenacao(const char *caminho)
         printf("5. Shellsort\n");
         printf("6. Selecao direta\n");
         printf("7. Heapsort\n");
-        printf("8. Quicksort\n");
-        printf("9. Mergesort\n");
-        printf("10. Radixsort\n");
-        printf("11. Bucketsort\n");
-        printf("12. Executar todos os algoritmos\n");
-        printf("13. Voltar\n");
+        printf("8. Quicksort Ini\n");
+        printf("9. Quicksort Centro\n");
+        printf("10. Quicksort Mediana\n");
+        printf("11. Mergesort\n");
+        printf("12. Radixsort\n");
+        printf("13. Bucketsort\n");
+        printf("14. Executar todos os algoritmos\n");
+        printf("15. Voltar\n");
         printf("Digite sua opcao: ");
         scanf("%d", &opcao);
 
@@ -241,22 +245,53 @@ void menu_ordenacao(const char *caminho)
             break;
 
         case 8:
-            printf("Usando Quicksort...\n");
+            printf("Usando Quicksort Ini...\n");
 
-            extern double qST;
-            extern long long int qSComp;
-            extern long long int qSSwaps;
+            extern long long int qSIComp;
+            extern long long int qSISwaps;
+            extern double qSIT;
 
-            qSComp = 0;
-            qSSwaps = 0;
-            qST = 0.0;
+            qSIComp = 0;
+            qSISwaps = 0;
+            qSIT = 0.0;
 
-            quickSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Quick sort", qSComp, qSSwaps, qST);
+            quicksortIniWrapper(dados, tamanho);
+            salvar_saida("saida.txt", dados, tamanho, "Quicksort Ini", qSIComp, qSISwaps, qSIT);
+
+            break;
+        case 9:
+            printf("Usando Quicksort Centro...\n");
+
+            extern long long int qSCComp;
+            extern long long int qSCSwaps;
+            extern double qSCT;
+
+            qSCComp = 0;
+            qSCSwaps = 0;
+            qSCT = 0.0;
+
+            quicksortCentroWrapper(dados, tamanho);
+            salvar_saida("saida.txt", dados, tamanho, "Quicksort Centro", qSCComp, qSCSwaps, qSCT);
 
             break;
 
-        case 9:
+        case 10:
+            printf("Usando Quicksort Mediana...\n");
+
+            extern long long int qSMComp;
+            extern long long int qSMSwaps;
+            extern double qSMT;
+
+            qSMComp = 0;
+            qSMSwaps = 0;
+            qSMT = 0.0;
+
+            quicksortMedianaWrapper(dados, tamanho);
+            salvar_saida("saida.txt", dados, tamanho, "Quicksort Mediana", qSMComp, qSMSwaps, qSMT);
+
+            break;
+
+        case 11:
             printf("Usando Mergesort...\n");
 
             extern double mST;
@@ -272,7 +307,7 @@ void menu_ordenacao(const char *caminho)
 
             break;
 
-        case 10:
+        case 12:
             printf("Usando Radixsort...\n");
 
             extern double rST;
@@ -288,7 +323,7 @@ void menu_ordenacao(const char *caminho)
 
             break;
 
-        case 11:
+        case 13:
             printf("Usando Bucketsort...\n");
 
             extern double bSTE;
@@ -304,16 +339,16 @@ void menu_ordenacao(const char *caminho)
 
             break;
 
-        case 12:
+        case 14:
             printf("Executando todos os algoritmos...\n\n");
 
             const char *algoritmos[] = {
                 "Bolha sem parada", "Bolha com parada", "Insercao direta", "Insercao binaria",
-                "Shell sort", "Selecao direta", "Heap sort", "Quick sort", "Merge sort",
+                "Shell sort", "Selecao direta", "Heap sort", "Quick sort Ini", "Quick sort Centro", "Quick sort Med", "Merge sort",
                 "Radix sort", "Bucket sort"};
-            long long int comparacoes[11] = {0};
-            long long int trocas[11] = {0};
-            double tempos[11] = {0};
+            long long int comparacoes[13] = {0};
+            long long int trocas[13] = {0};
+            double tempos[13] = {0};
 
             // Cria uma cópia dos dados para cada algoritmo
             int *dados_copia = malloc(tamanho * sizeof(int));
@@ -373,42 +408,59 @@ void menu_ordenacao(const char *caminho)
             trocas[6] = hSSwaps;
             tempos[6] = hST;
 
-            // Quicksort
+            // Quicksort Ini
+
             memcpy(dados_copia, dados, tamanho * sizeof(int));
-            quickSort(dados_copia, tamanho);
-            comparacoes[7] = qSComp;
-            trocas[7] = qSSwaps;
-            tempos[7] = qST;
+            quicksortIniWrapper(dados_copia, tamanho);
+            comparacoes[7] = qSIComp;
+            trocas[7] = qSISwaps;
+            tempos[7] = qSIT;
+
+            // Quicksort Centro
+
+            memcpy(dados_copia, dados, tamanho * sizeof(int));
+            quicksortCentroWrapper(dados_copia, tamanho);
+            comparacoes[8] = qSCComp;
+            trocas[8] = qSCSwaps;
+            tempos[8] = qSCT;
+
+            // Quicksort Mediana
+
+            memcpy(dados_copia, dados, tamanho * sizeof(int));
+            quicksortMedianaWrapper(dados_copia, tamanho);
+            comparacoes[9] = qSMComp;
+            trocas[9] = qSMSwaps;
+            tempos[9] = qSMT;
 
             // Mergesort
             memcpy(dados_copia, dados, tamanho * sizeof(int));
             mergeSort(dados_copia, tamanho);
-            comparacoes[8] = mSComp;
-            trocas[8] = mSSwaps;
-            tempos[8] = mST;
+            comparacoes[10] = mSComp;
+            trocas[10] = mSSwaps;
+            tempos[10] = mST;
 
             // Radixsort
             memcpy(dados_copia, dados, tamanho * sizeof(int));
             radixSort(dados_copia, tamanho);
-            comparacoes[9] = rSComp;
-            trocas[9] = rSSwaps;
-            tempos[9] = rST;
+            comparacoes[11] = rSComp;
+            trocas[11] = rSSwaps;
+            tempos[11] = rST;
 
             // Bucketsort
             memcpy(dados_copia, dados, tamanho * sizeof(int));
             bucketSort(dados_copia, tamanho);
-            comparacoes[10] = bSComp;
-            trocas[10] = bSSwaps;
-            tempos[10] = bSTE;
+            comparacoes[12] = bSComp;
+            trocas[12] = bSSwaps;
+            tempos[12] = bSTE;
 
             // Salvar os resultados no arquivo
-            salvar_saida_todos("saida.txt", dados, tamanho, algoritmos, comparacoes, trocas, tempos, 11);
+            salvar_saida_todos("saida.txt", dados, tamanho, algoritmos, comparacoes, trocas, tempos, 13);
 
             // Libera a memória usada pela cópia
             free(dados_copia);
             break;
 
-        case 13:
+        case 15:
 
             free(dados);
 

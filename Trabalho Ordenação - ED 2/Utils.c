@@ -34,7 +34,7 @@ int *ler_arquivo(const char *caminho, int *tamanho)
     // Alocar memória para os dados
     int *dados = malloc((*tamanho) * sizeof(int));
     if (!dados) {
-        printf("Erro ao alocar memoria.\n");
+        printf("Erro ao alocar memoria para %d numeros.\n", *tamanho);
         fclose(file);
         return NULL;
     }
@@ -118,9 +118,8 @@ void salvar_saida_todos(const char *caminho, int *dados, int tamanho, const char
     fprintf(file, "Dados ordenados:\n");
     for (int j = 0; j < tamanho; j++)
     {
-        fprintf(file, "%d\n", dados_ordenados[j]);
+        fprintf(file, "%d\n", dados[j]);
     }
 
-    free(dados_ordenados);
     fclose(file);
 }

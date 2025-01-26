@@ -18,6 +18,8 @@ void swapSelection(int *a, int *b, long long int *sSSwaps) {
 // Função principal para realizar a ordenação por seleção 
 void selectionSort(int *array, int tamanho) {
 
+    printf("Executando selectionsort\n");
+
     sSCompE = 0;
     sSSwapsE = 0;
 

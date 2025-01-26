@@ -9,6 +9,7 @@ long long int bCPSwaps;
 
 // Função para realizar a ordenação por bolha com parada
 void ordenaBolhaComParada(int *dados, int tamanho) {
+    printf("Executando bolha com parada\n");
     int mudou = 1;
     int n = tamanho - 1;
     int j, aux;

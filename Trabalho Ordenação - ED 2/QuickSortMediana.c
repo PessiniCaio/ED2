@@ -12,6 +12,9 @@ void quicksortMediana(int *array, int low, int high) {
         qSMComp++;
         int mid = low + (high - low) / 2;
         int a = array[low], b = array[mid], c = array[high];
+
+        qSMComp += 3;
+
         int pivotIndex = (a < b) ? ((b < c) ? mid : ((a < c) ? high : low)) 
                                  : ((a < c) ? low : ((b < c) ? high : mid));
         int pivot = array[pivotIndex];

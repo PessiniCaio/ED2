@@ -12,9 +12,11 @@ double bIST;
 int binarySearch(int a[], int item, 
 				int low, int high)
 {
-	if (high <= low)
-		return (item > a[low]) ? 
+	if (high <= low) {
+
+        return (item > a[low]) ? 
 				(low + 1) : low;
+    }
 
 	int mid = (low + high) / 2;
 
@@ -45,8 +47,7 @@ void binaryInsertionSort(int *array, int tamanho)
         selected = array[i];
 
         loc = binarySearch(array, selected, 0, j);
-
-        bIComp += j - loc + 1;
+        bIComp ++;
 
         while (j >= loc) 
         {

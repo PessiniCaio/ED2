@@ -31,7 +31,6 @@ void insertionSort(int *array, int tamanho) {
             j = j - 1;
             iSSwaps++;
         }
-        iSComp++;
         array[j + 1] = key;
     }
 

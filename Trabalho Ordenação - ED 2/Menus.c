@@ -133,213 +133,306 @@ void menu_ordenacao(const char *caminho)
         switch (opcao)
         {
         case 1:
+        {
             printf("Usando Bolha Sem Criterio de Parada...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double bSPT;
             extern long long int bSPComp;
             extern long long int bSPSwaps;
-
             bSPComp = 0;
             bSPSwaps = 0;
             bSPT = 0.0;
 
-            ordenaBolhaSemParada(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Bolha sem parada", bSPComp, bSPSwaps, bSPT);
+            ordenaBolhaSemParada(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Bolha sem parada", bSPComp, bSPSwaps, bSPT);
+            free(dados_aux);
 
             break;
-
+        }    
         case 2:
+        {
             printf("Usando Bolha Com Criterio de Parada...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double bCPT;
             extern long long int bCPComp;
             extern long long int bCPSwaps;
-
             bCPComp = 0;
             bCPSwaps = 0;
             bCPT = 0.0;
 
-            ordenaBolhaComParada(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Bolha com parada", bCPComp, bCPSwaps, bCPT);
+            ordenaBolhaComParada(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Bolha com parada", bCPComp, bCPSwaps, bCPT);
+            free(dados_aux);
 
             break;
-
+        }
         case 3:
+        {
             printf("Usando Insercao direta...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double iST;
             extern long long int iSComp;
             extern long long int iSSwaps;
-
             iSComp = 0;
             iSSwaps = 0;
             iST = 0.0;
 
-            insertionSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Insercao direta", iSComp, bCPSwaps, bCPT);
+            insertionSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Insercao direta", iSComp, bCPSwaps, bCPT);
+            free(dados_aux);
 
             break;
-
+        }
         case 4:
+        {
             printf("Usando Insercao binaria...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern long long int bIComp;
             extern long long int bISwaps;
             extern double bIST;
-
             bIComp = 0;
             bISwaps = 0;
             bIST = 0.0;
 
-            binaryInsertionSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Insercao binaria", bIComp, bISwaps, bIST);
+            binaryInsertionSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Insercao binaria", bIComp, bISwaps, bIST);
+            free(dados_aux);
 
             break;
-
+        }
         case 5:
+        {
             printf("Usando Shellsort...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double sST;
             extern long long int sSComp;
             extern long long int sSSwaps;
-
             sSComp = 0;
             sSSwaps = 0;
             sST = 0.0;
 
-            shellSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Shell sort", sSComp, sSSwaps, sST);
+            shellSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Shell sort", sSComp, sSSwaps, sST);
+            free(dados_aux);
 
             break;
-
+        }
         case 6:
+        {
             printf("Usando Selecao direta...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double sSTE;
             extern long long int sSCompE;
             extern long long int sSSwapsE;
-
             sSCompE = 0;
             sSSwapsE = 0;
             sSTE = 0.0;
 
-            selectionSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Selecao direta", sSCompE, sSSwapsE, sSTE);
+            selectionSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Selecao direta", sSCompE, sSSwapsE, sSTE);
+            free(dados_aux);
 
             break;
-
+        }
         case 7:
+        {
             printf("Usando Heapsort...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double hST;
             extern long long int hSComp;
             extern long long int hSSwaps;
-
             hSComp = 0;
             hSSwaps = 0;
             hST = 0.0;
 
-            heapSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Heap sort", hSComp, hSSwaps, hST);
+            heapSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Heap sort", hSComp, hSSwaps, hST);
+            free(dados_aux);
 
             break;
-
+        }
         case 8:
+        {
             printf("Usando Quicksort Ini...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern long long int qSIComp;
             extern long long int qSISwaps;
             extern double qSIT;
-
             qSIComp = 0;
             qSISwaps = 0;
             qSIT = 0.0;
 
-            quicksortIniWrapper(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Quicksort Ini", qSIComp, qSISwaps, qSIT);
+            quicksortIniWrapper(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Quicksort Ini", qSIComp, qSISwaps, qSIT);
+            free(dados_aux);
 
             break;
+        }
         case 9:
+        {
             printf("Usando Quicksort Centro...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern long long int qSCComp;
             extern long long int qSCSwaps;
             extern double qSCT;
-
             qSCComp = 0;
             qSCSwaps = 0;
             qSCT = 0.0;
 
-            quicksortCentroWrapper(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Quicksort Centro", qSCComp, qSCSwaps, qSCT);
+            quicksortCentroWrapper(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Quicksort Centro", qSCComp, qSCSwaps, qSCT);
+            free(dados_aux);
 
             break;
-
+        }
         case 10:
+        {
             printf("Usando Quicksort Mediana...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern long long int qSMComp;
             extern long long int qSMSwaps;
             extern double qSMT;
-
             qSMComp = 0;
             qSMSwaps = 0;
             qSMT = 0.0;
 
-            quicksortMedianaWrapper(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Quicksort Mediana", qSMComp, qSMSwaps, qSMT);
+            quicksortMedianaWrapper(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Quicksort Mediana", qSMComp, qSMSwaps, qSMT);
+            free(dados_aux);
 
             break;
-
+        }
         case 11:
+        {
             printf("Usando Mergesort...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double mST;
             extern long long int mSComp;
             extern long long int mSSwaps;
-
             mSComp = 0;
             mSSwaps = 0;
             mST = 0.0;
 
-            mergeSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Merge sort", mSComp, mSSwaps, mST);
+            mergeSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Merge sort", mSComp, mSSwaps, mST);
+            free(dados_aux);
 
             break;
-
+        }
         case 12:
+        {
             printf("Usando Radixsort...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double rST;
             extern long long int rSComp;
             extern long long int rSSwaps;
-
             rSComp = 0;
             rSSwaps = 0;
             rST = 0.0;
 
-            radixSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Radix sort", rSComp, rSSwaps, rST);
+            radixSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Radix sort", rSComp, rSSwaps, rST);
+            free(dados_aux);
 
             break;
-
+        }
         case 13:
+        {
             printf("Usando Bucketsort...\n");
+            int *dados_aux = malloc(tamanho * sizeof(int));
+            if (!dados_aux) {
+                printf("Erro na alocacao da copia dos dados.\n");
+                break;
+            }
+            memcpy(dados_aux, dados, tamanho * sizeof(int));
 
             extern double bSTE;
             extern long long int bSComp;
             extern long long int bSSwaps;
-
             bSComp = 0;
             bSSwaps = 0;
             bSTE = 0.0;
 
-            bucketSort(dados, tamanho);
-            salvar_saida("saida.txt", dados, tamanho, "Bucket sort", bSComp, bSSwaps, bSTE);
+            bucketSort(dados_aux, tamanho);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Bucket sort", bSComp, bSSwaps, bSTE);
+            free(dados_aux);
 
             break;
-
+        }
         case 14:
+        {
             printf("Executando todos os algoritmos...\n\n");
 
             const char *algoritmos[] = {
@@ -459,11 +552,9 @@ void menu_ordenacao(const char *caminho)
             // Libera a memória usada pela cópia
             free(dados_copia);
             break;
-
+        }
         case 15:
-
             free(dados);
-
             return;
             break;
 

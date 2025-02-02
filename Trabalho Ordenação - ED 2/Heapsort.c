@@ -64,6 +64,8 @@ void heapSort(int *array, int tamanho) {
         array[0] = array[i];
         array[i] = temp;
 
+        hSSwaps++;
+
         heapify(array, i, 0, &hSComp, &hSSwaps);
     }
 

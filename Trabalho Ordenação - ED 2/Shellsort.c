@@ -33,7 +33,6 @@ void shellSort(int *dados, int tamanho) {
 
             }
             dados[j] = temp;
-            sSSwaps++;
         }
     }
 

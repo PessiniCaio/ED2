@@ -25,23 +25,32 @@ void bucketSort(int *array, int tamanho) {
 
     int i, j;
     int interval = 10; 
-    int nBuckets = tamanho / 2; 
+    int nBuckets = tamanho / 2;
+    if (nBuckets <= 0) nBuckets = 1; 
     bSComp = 0;
     bSSwaps = 0;
 
     clock_t start, end;
     start = clock();
 
-    struct Node **buckets = (struct Node **)malloc(sizeof(struct Node *) * nBuckets);
-
+    // Alocando estaticamente os buckets
+    struct Node *buckets[nBuckets];
     for (i = 0; i < nBuckets; ++i) {
         buckets[i] = NULL;
     }
 
+    struct Node nodes[tamanho];
+    int nodeIndex = 0;
+
     // Distribui os elementos do vetor nos buckets correspondentes
     for (i = 0; i < tamanho; ++i) {
         int pos = getBucketIndex(array[i], interval);
-        struct Node *current = (struct Node *)malloc(sizeof(struct Node));
+        if (pos >= nBuckets) {
+            pos = nBuckets - 1;
+        }
+
+        // Usa o próximo nó disponível no vetor
+        struct Node *current = &nodes[nodeIndex++];
         current->data = array[i];
         current->next = buckets[pos];
         buckets[pos] = current;
@@ -57,13 +66,9 @@ void bucketSort(int *array, int tamanho) {
         struct Node *node = buckets[i];
         while (node) {
             array[j++] = node->data;
-            struct Node *temp = node;
             node = node->next;
-            free(temp);
         }
     }
-
-    free(buckets);
 
     end = clock();
     bSTE = ((double)(end - start)) / CLOCKS_PER_SEC;
@@ -83,6 +88,7 @@ struct Node *InsertionSort(struct Node *list, long long int *bSComp, long long i
             (*bSComp)++;
             current->next = sorted;
             sorted = current;
+            (*bSSwaps)++;
         } else {
             struct Node *temp = sorted;
             // Encontra a posição correta para inserir o nó
@@ -92,8 +98,8 @@ struct Node *InsertionSort(struct Node *list, long long int *bSComp, long long i
             }
             current->next = temp->next;
             temp->next = current;
+            (*bSSwaps)++;
         }
-        (*bSSwaps)++;
         current = next;
     }
 

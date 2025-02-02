@@ -34,7 +34,9 @@ void selectionSort(int *array, int tamanho) {
                 min_idx = i;
             }
         }
-        swapSelection(&array[min_idx], &array[step], &sSSwapsE);
+        if (min_idx != step) {
+            swapSelection(&array[min_idx], &array[step], &sSSwapsE);
+        }
     }
 
     end = clock();

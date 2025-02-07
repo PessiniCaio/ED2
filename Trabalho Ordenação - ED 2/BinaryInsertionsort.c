@@ -34,28 +34,40 @@ int binarySearch(int a[], int item,
 void binaryInsertionSort(int *array, int tamanho)
 {
     printf("Executando insercao binaria\n");
-    int i, loc, j, selected;
+    int aux, esq, dir, meio;
+    int i, j;
     bIComp = 0;
     bISwaps = 0;
 
     clock_t start, end;
     start = clock();
 
-    for (i = 1; i < tamanho; ++i) 
+    for(i = 1; i < tamanho; i++)
     {
-        j = i - 1;
-        selected = array[i];
+        aux = array[i];
+        esq = 0;
+        dir = i; 
 
-        loc = binarySearch(array, selected, 0, j);
-        bIComp ++;
-
-        while (j >= loc) 
+        while(esq < dir)
         {
-            array[j + 1] = array[j];
-            j--;
-            bISwaps++;
+            bIComp++;  
+            meio = (esq + dir) / 2;
+            if(array[meio] <= aux)
+            {
+                esq = meio + 1;
+            }
+            else
+            {
+                dir = meio;
+            }
         }
-        array[j + 1] = selected;
+        
+        for(j = i; j > esq; j--)
+        {
+            array[j] = array[j-1];
+            bISwaps++; 
+        }
+        array[esq] = aux;
     }
 
     end = clock();

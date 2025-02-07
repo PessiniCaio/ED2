@@ -196,7 +196,7 @@ void menu_ordenacao(const char *caminho)
             iST = 0.0;
 
             insertionSort(dados_aux, tamanho);
-            salvar_saida("saida.txt", dados_aux, tamanho, "Insercao direta", iSComp, bCPSwaps, bCPT);
+            salvar_saida("saida.txt", dados_aux, tamanho, "Insercao direta", iSComp, iSSwaps, bCPT);
             free(dados_aux);
 
             break;

@@ -84,22 +84,23 @@ struct Node *InsertionSort(struct Node *list, long long int *bSComp, long long i
     // Itera sobre os nós da lista
     while (current) {
         struct Node *next = current->next;
-        if (!sorted || sorted->data >= current->data) {
+        struct Node **temp = &sorted;
+        (*bSComp)++;  // Contando a primeira comparação
+
+        // Encontra a posição correta para inserir o nó
+        while (*temp && (*temp)->data < current->data) {
             (*bSComp)++;
-            current->next = sorted;
-            sorted = current;
-            (*bSSwaps)++;
-        } else {
-            struct Node *temp = sorted;
-            // Encontra a posição correta para inserir o nó
-            while (temp->next && temp->next->data < current->data) {
-                (*bSComp)++;
-                temp = temp->next;
-            }
-            current->next = temp->next;
-            temp->next = current;
+            temp = &((*temp)->next);
+        }
+
+        // Se o nó não está na posição correta, contamos como troca
+        if (*temp != current) {
             (*bSSwaps)++;
         }
+
+        // Insere o nó na posição correta
+        current->next = *temp;
+        *temp = current;
         current = next;
     }
 

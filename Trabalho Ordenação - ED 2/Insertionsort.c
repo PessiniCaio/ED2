@@ -20,18 +20,26 @@ void insertionSort(int *array, int tamanho) {
 
 
     // Percorre o vetor a partir do segundo elemento
-    for (int i = 1; i < tamanho; ++i) {
+    for (int i = 1; i < tamanho; i++) {
         int key = array[i];
         int j = i - 1;
 
         // Move os elementos maiores que a chave uma posição para a direita
-        while (j >= 0 && array[j] > key) {
+        while (j >= 0) {
             iSComp++;
-            array[j + 1] = array[j];
-            j = j - 1;
-            iSSwaps++;
+            if (array[j] > key) {
+                array[j + 1] = array[j];
+                j--;
+                iSSwaps++;
+            } else {
+                break;
+            }
         }
-        array[j + 1] = key;
+
+        if (j != i - 1) {
+            array[j + 1] = key;
+        }
+
     }
 
     end = clock();

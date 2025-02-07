@@ -23,16 +23,19 @@ void shellSort(int *dados, int tamanho) {
         // Itera sobre os elementos no intervalo do "gap"
         for (int i = gap; i < tamanho; i++) {
             int temp = dados[i];
-            int j;
-            
-            // Move elementos maiores que `temp` para frente no intervalo do "gap"
-            for (j = i; j >= gap && dados[j - gap] > temp; j -= gap) {
-                dados[j] = dados[j - gap];
-                sSComp++;
-                sSSwaps++;
+            int j = i - gap;
 
+            while (j >= 0 && temp < dados[j]) {
+                sSComp++;
+                dados[j + gap] = dados[j];
+                sSSwaps++;
+                j -= gap;
             }
-            dados[j] = temp;
+
+            if (j >= 0) {
+                sSComp++;
+            }
+            dados[j + gap] = temp;
         }
     }
 

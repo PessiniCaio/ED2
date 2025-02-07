@@ -10,16 +10,18 @@ long long int rSSwaps;
 // Função para encontrar o maior elemento no vetor
 int getMax(int *array, int tamanho) {
     int max = array[0];
+
     for (int i = 1; i < tamanho; i++) {
         if (array[i] > max) {
             max = array[i];
         }
     }
+
     return max;
 }
 
 // Função Counting Sort para um dígito específico
-void countingSort(int *array, int tamanho, int place, long long int *rSComp, long long int *rSSwaps) {
+void countingSort(int *array, int tamanho, int place, long long int *rSSwaps) {
     int output[tamanho];    // Vetor para armazenar os resultados ordenados
     int count[10] = {0};    // Contador para armazenar a frequência dos dígitos
 
@@ -39,13 +41,12 @@ void countingSort(int *array, int tamanho, int place, long long int *rSComp, lon
         int index = (array[i] / place) % 10;
         output[count[index] - 1] = array[i];
         count[index]--;
-        (*rSSwaps)++;
     }
 
     // Copia os elementos do vetor de saída de volta para o array original
     for (int i = 0; i < tamanho; i++) {
         array[i] = output[i];
-        (*rSComp)++;
+        (*rSSwaps)++;
     }
 }
 
@@ -64,7 +65,7 @@ void radixSort(int *array, int tamanho) {
 
     // Aplica Counting Sort para cada dígito (unidade, dezena, centena, etc.)
     for (int place = 1; maxElement / place > 0; place *= 10) {
-        countingSort(array, tamanho, place, &rSComp, &rSSwaps);
+        countingSort(array, tamanho, place, &rSSwaps);
     }
 
     end = clock();

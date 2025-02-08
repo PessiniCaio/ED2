@@ -76,8 +76,6 @@ void mergeSortHelper(int *array, int left, int right, long long int *mSComp, lon
 // Função principal para realizar a ordenação por merge 
 void mergeSort(int *array, int tamanho) {
 
-    printf("Executando mergesort\n");
-
     mSComp = 0;
     mSSwaps = 0;
 

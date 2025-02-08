@@ -9,7 +9,6 @@ long long int bSPSwaps;
 
 // Função para realizar a ordenação por bolha sem parada
 void ordenaBolhaSemParada(int *dados, int tamanho) {
-    printf("Executando bolha sem parada\n");
     int i, j, aux;
     bSPComp = 0;
     bSPSwaps = 0;

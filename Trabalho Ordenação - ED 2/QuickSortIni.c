@@ -40,7 +40,6 @@ void quicksortIni(int *array, int low, int high, long long int *num_comparacoes,
 
 void quicksortIniWrapper(int *array, int tamanho) {
 
-    printf("Executando quicksortIni\n");
 
     qSIComp = 0;
     qSISwaps = 0;

@@ -48,8 +48,6 @@ void quicksortCentro(int *array, int low, int high) {
 
 void quicksortCentroWrapper(int *array, int tamanho) {
 
-    printf("Executando quicksortCentro\n");
-
     qSCComp = 0;
     qSCSwaps = 0;
 

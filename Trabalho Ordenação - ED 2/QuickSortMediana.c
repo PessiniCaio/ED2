@@ -55,7 +55,6 @@ void quicksortMediana(int *array, int low, int high) {
 
 void quicksortMedianaWrapper(int *array, int tamanho) {
 
-    printf("Executando quicksortMediana\n");
 
     qSMComp = 0;
     qSMSwaps = 0;

@@ -53,8 +53,6 @@ void countingSort(int *array, int tamanho, int place, long long int *rSSwaps) {
 // Função principal para realizar a ordenação por radix 
 void radixSort(int *array, int tamanho) {
 
-    printf("Executando radix sort\n");
-
     rSComp = 0;
     rSSwaps = 0;
 

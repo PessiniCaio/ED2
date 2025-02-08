@@ -5,6 +5,6 @@ extern double bSTE;
 extern long long int bSComp;
 extern long long int bSSwaps;
 
-void bucketSort(int *array, int tamanho);
+void bucketSort(int *V, int tamanho);
 
 #endif

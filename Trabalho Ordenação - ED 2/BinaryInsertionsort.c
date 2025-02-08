@@ -33,7 +33,6 @@ int binarySearch(int a[], int item,
 // Função para realizar ordenação por inserção binária
 void binaryInsertionSort(int *array, int tamanho)
 {
-    printf("Executando insercao binaria\n");
     int aux, esq, dir, meio;
     int i, j;
     bIComp = 0;

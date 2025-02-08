@@ -10,7 +10,6 @@ long long int iSSwaps;
 // Função para realizar a ordenação por inserção direta
 void insertionSort(int *array, int tamanho) {
 
-    printf("Executando insercao direta\n");
 
     iSComp = 0;
     iSSwaps = 0;
